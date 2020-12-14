@@ -1,13 +1,11 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
-
-    public Parser(){
-    }
 
     public static String changeSpecialCharacters(String special){
         Pattern pattern = Pattern.compile("[;*^%!@]");
@@ -25,7 +23,7 @@ public class Parser {
             count++;
         }
         System.out.println(count);
-        String answer = matcher.replaceAll("\n");
+        String answer = matcher.replaceAll("\n\n");
         return answer;
     }
     public static String changeSpellName(String spelling){
@@ -52,6 +50,19 @@ public class Parser {
         matcher.find();
         return matcher.replaceAll("Cookies");
     }
+    public static String changeSpellApples(String spelling){
+        Pattern pattern = Pattern.compile("(?i)Apples");
+        Matcher matcher = pattern.matcher(spelling);
+        matcher.find();
+        return matcher.replaceAll("Apples");
+    }
+    public static String changeSpellPrice(String spelling){
+        Pattern pattern = Pattern.compile("(?i)price");
+        Matcher matcher = pattern.matcher(spelling);
+        matcher.find();
+        return matcher.replaceAll("price");
+    }
+
 
 
 }
